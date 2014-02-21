@@ -1,0 +1,26 @@
+<table class='table'>
+  <tr>
+    <td><%= @venue.name %></td>
+    <td><%= @venue.description %></td>
+    <td><%= @venue.city %></td>
+    <td><%= @venue.state %></td>
+    <td><%= @venue.country %></td>
+  </tr>
+</table>
+<div>
+  <% if @venue.images.exists? %>
+    <% @venue.images.each do |image| %>
+      <table>
+        <tr>
+          <td><%= image.title %></td>
+        </tr>
+        <tr>
+          <td><%= image_tag(image.photo.url(:thumb)) %></td>
+        </tr>
+        <tr>
+          <td><%= image.credit %></td>
+        </tr>
+      </table>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,46 @@
+<h2>Upload Venue</h2>
+<%= form_for @venue,:url => venues_path(@venue) do |f| %>
+  <%= f.error_messages %>
+
+  <div><%= f.label :name %><br/>
+    <%= f.text_field :name %></div>
+
+  <div><%= f.label :description %><br/>
+    <%= f.text_area :description,:cols => 30,:rows => 4 %></div>
+
+  <div><%= f.label :Location %><br />
+    <%= f.text_field :city %>Tag:<%= select_tag(:tag, options_for_select([['City'], ['State'], ['Country']], selected: :option )) %></div>
+
+  <div><% f.label :state %><br />
+    <% f.text_field :state %></div>
+
+  <div><% f.label :country %><br />
+    <% f.text_field :country %></div>
+  <div>Images</div>
+  <%= f.fields_for :images do |image| %>
+    <table>
+      <tr>
+        <td><%= image.label :title %></td>
+        <td><%= image.text_field :title %></td>
+      </tr>
+      <tr>
+        <td><%= image.label :photo %></td>
+        <td><%= image.file_field :photo %></td>
+      </tr>
+      <tr>
+        <td><%= image.label :credit %></td>
+        <td><%= image.text_field :credit %></td>
+      </tr>
+    </table>
+  <% end %>
+  <p><%= link_to_add_fields "add more", f, :images  %></p>
+  <div><%= f.submit "Upload" %> </div>
+<% end %>
+
+
+<script>
+  function myFunction(){
+    alert('sdf');
+  }
+</script>
+

@@ -1,0 +1,19 @@
+<table class='table'>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+  </tr>
+  <% @venues.each do |venue| %>
+    <tr>
+      <td><%= venue.name %></td>
+      <td><%= venue.description %></td>
+      <td><%= venue.city %></td>
+      <td><%= venue.state %></td>
+      <td><%= venue.country %></td>
+      <td><%= link_to "Show",venue_path(venue) %></td>
+    </tr>
+  <% end %>
+</table>
